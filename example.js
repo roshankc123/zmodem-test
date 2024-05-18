@@ -66,8 +66,8 @@ function extratc_sz_data(data){
         logger("timeout")
       else if(containsPattern(data, "Transfer complete"))
         logger("complete")
-      else
-        logger(data)
+      // else
+      //   logger(data)
     });
 
     // pty.write("hello")
