@@ -36,7 +36,8 @@ InitElectronExapmle = (terminal) => {
 }
 
 function extratc_sz_data(data){
-  const regex = /Bytes Sent: (\d+)\/ (\d+) BPS:(\d+) ETA (\d{2}:\d{2})(.+)/;
+  const regex = /Bytes Sent:\s*(\d+)\/\s*(\d+)\s*BPS:\s*(\d+)\s*ETA\s*(\d{2}:\d{2})\s*(.+)/;
+
   const match = data.match(regex);
 
   if (match) {
