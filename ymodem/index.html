@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ymodem</title>
+</head>
+<body>
+    <div id="terminal">
+        <input type="file" id="fileInput" />
+        <input type="text" id="portInput" placeholder="Serial Port Path" value="/dev/ttyUSB0"/>
+        <input type="number" id="baudRateInput" placeholder="Baud Rate" value="9600" />
+        <button id="uploadButton">Upload</button>
+        <div id="progressOutput"></div>
+        <div id="logOutput"></div>
+    </div>
+
+    <script src="renderer.js"></script>
+</body>
+</html>
