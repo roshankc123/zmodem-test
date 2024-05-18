@@ -35,10 +35,32 @@ InitElectronExapmle = (terminal) => {
     return regex.test(str);
 }
 
+function extratc_sz_data(data){
+  const regex = /Bytes Sent: (\d+)\/ (\d+) BPS:(\d+) ETA (\d{2}:\d{2})/;
+  const match = data.match(regex);
+
+  if (match) {
+      const bytesSent = match[1];
+      const totalBytes = match[2];
+      const bps = match[3];
+      const eta = match[4];
+
+      console.log("Bytes Sent:", bytesSent);
+      console.log("Total Bytes:", totalBytes);
+      console.log("BPS:", bps);
+      console.log("ETA:", eta);
+      logger(console.log(`Bytes Sent: ${bytesSent}, Total Bytes: ${totalBytes}, BPS: ${bps}, ETA: ${eta}, Percentage: ${((bytesSent / totalBytes) * 100).toFixed(2)}%`))
+  } else {
+      console.log("No match found.");
+  }
+}
 
   pty.on("data", (data) => {
       console.log("pty.on ", data)
-      // zsentry.consume(data);
+      // zsentry.consume(data);Bytes Sent
+
+      if(containsPattern(data, "containsPattern"))
+        extratc_sz_data(data)
       if(containsPattern(data, "Transfer incomplete"))
         logger("trasnfer failed")
       else if(containsPattern(data, "Timeout"))
