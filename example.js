@@ -58,7 +58,7 @@ function extratc_sz_data(data){
   pty.on("data", (data) => {
       console.log("pty.on ", data)
       // zsentry.consume(data);Bytes Sent
-      if(containsPattern(data, "containsPattern"))
+      if(containsPattern(data, "Bytes Sent"))
         extratc_sz_data(data)
       if(containsPattern(data, "Transfer incomplete"))
         logger("transfer failed")
