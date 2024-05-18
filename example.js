@@ -49,7 +49,7 @@ function extratc_sz_data(data){
       console.log("Total Bytes:", totalBytes);
       console.log("BPS:", bps);
       console.log("ETA:", eta);
-      logger(console.log(`Bytes Sent: ${bytesSent}, Total Bytes: ${totalBytes}, BPS: ${bps}, ETA: ${eta}, Percentage: ${((bytesSent / totalBytes) * 100).toFixed(2)}%`))
+      logger(`Bytes Sent: ${bytesSent}, Total Bytes: ${totalBytes}, BPS: ${bps}, ETA: ${eta}, Percentage: ${((bytesSent / totalBytes) * 100).toFixed(2)}%`)
   } else {
       console.log("No match found.");
   }
@@ -58,13 +58,14 @@ function extratc_sz_data(data){
   pty.on("data", (data) => {
       console.log("pty.on ", data)
       // zsentry.consume(data);Bytes Sent
-
       if(containsPattern(data, "containsPattern"))
         extratc_sz_data(data)
       if(containsPattern(data, "Transfer incomplete"))
-        logger("trasnfer failed")
+        logger("transfer failed")
       else if(containsPattern(data, "Timeout"))
         logger("timeout")
+      else if(containsPattern(data, "Transfer complete"))
+        logger("complete")
       else
         logger(data)
     });
